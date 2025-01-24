@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<?fyp appVersion="5.4.5" schemaVersion="26"?>
+<figure xmlns="http://www.keck.ucsf.edu/datanav/namespace/schema26"
+   strokeWidth="0.01in" strokeJoin="miter" loc="1.33in 3.31in" strokePat="solid" psFont="Helvetica" fontStyle="plain" fillColor="000000" altFont="serif" strokeCap="butt" width="10in" fontSize="12" strokeColor="000000" font="Arial" height="9in">
+   <textbox strokeWidth="0in" loc="1% 88%" lineHt="0.8" width="0.68in" fontSize="18" bkg="ffffff" height="0.52in">a</textbox>
+   <textbox strokeWidth="0in" loc="22.8% 88%" width="0.68in" fontSize="18" bkg="ffffff" height="0.52in">b</textbox>
+   <textbox strokeWidth="0in" loc="45.1% 88%" width="0.68in" fontSize="18" bkg="ffffff" height="0.52in">c</textbox>
+   <textbox strokeWidth="0in" loc="68.5% 88%" width="0.68in" fontSize="18" bkg="ffffff" height="0.52in">d</textbox>
+   <textbox strokeWidth="0in" loc="1% 57%" width="0.68in" fontSize="18" bkg="ffffff" height="0.52in">e</textbox>
+   <textbox strokeWidth="0in" loc="53% 57%" width="0.68in" fontSize="18" bkg="ffffff" height="0.52in">f</textbox>
+   <textbox strokeWidth="0in" loc="1% 32%" width="0.68in" fontSize="18" bkg="ffffff" height="0.52in">g</textbox>
+   <textbox strokeWidth="0in" loc="48.3% 32%" width="0.68in" fontSize="18" bkg="ffffff" height="0.52in">h</textbox>
+   <graph strokeWidth="0.5pt" loc="1in 6.25in" autorange="z" width="1.25in" fontSize="10" title="Mean error sensitivityp=1.228e-27" height="1.5in">
+      <axis labelOffset="15pt" lineHt="0.8" start="-0.2" fontSize="12" end="3.2">
+         <ticks len="0.05in" intv="1" perLogIntv="1" gap="5pt" start="1" fontSize="10" end="2" fmt="f2">FF, FF-HFS</ticks>
+      </axis>
+      <axis labelOffset="30pt" lineHt="0.8" start="0" fontSize="12" end="0.3" title="Error sensitivity">
+         <ticks len="0.05in" intv="0.1" perLogIntv="1" gap="3pt" fontSize="10" fmt="f2"/>
+      </axis>
+      <colorbar cmapnan="ffffff" lineHt="0.8" gap="0.6in" cmap="tropic" start="0" spacer="0.1in" end="100" title="colormap">
+         <ticks intv="10"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend loc="0in 0in" size="0.1in" mid="true"/>
+      <bar strokeWidth="2pt" barWidth="60" src="#src_src_70" legend="false">ffffff;;group 0;;</bar>
+      <line p0="-0.2u 0u" p1="3.2u 0u" strokeColor="262626"/>
+      <trace strokeWidth="0pt" mode="histogram" src="#src_1" legend="false">
+         <symbol fillColor="ffffff" size="0pt" type="circle"/>
+         <ebar strokeWidth="1pt" cap="linethru" capSize="6pt"/>
+      </trace>
+      <label loc="50% 115%" fontSize="12" title="***"/>
+      <line p0="33% 110%" p1="66% 110%"/>
+   </graph>
+   <graph strokeWidth="0.5pt" loc="3.05in 6.25in" autorange="z" width="1.25in" fontSize="10" title="Mean retention factorp= 0.0030399" height="1.5in">
+      <axis labelOffset="15pt" lineHt="0.8" start="-0.2" fontSize="12" end="3.2">
+         <ticks len="0.05in" intv="1" perLogIntv="1" gap="5pt" start="1" fontSize="10" end="2" fmt="f2">FF,FF-HFS</ticks>
+      </axis>
+      <axis labelOffset="30pt" lineHt="0.8" start="0" fontSize="12" end="0.9" title="Retention factor">
+         <ticks len="0.05in" intv="0.2" perLogIntv="1" gap="3pt" start="0" fontSize="10" end="0.9" fmt="f2"/>
+      </axis>
+      <colorbar cmapnan="ffffff" lineHt="0.8" gap="0.6in" cmap="tropic" start="0" spacer="0.1in" end="100" title="colormap">
+         <ticks intv="10"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend loc="0in 0in" size="0.1in" mid="true"/>
+      <bar strokeWidth="2pt" barWidth="60" src="#src_src_83" legend="false">ffffff;;group 0</bar>
+      <line p0="-0.2u 0u" p1="3.2u 0u" strokeColor="262626"/>
+      <trace strokeWidth="0pt" src="#src_64" legend="false">
+         <symbol fillColor="ffffff" size="0pt" type="circle"/>
+         <ebar strokeWidth="1pt" cap="linethru" capSize="6pt"/>
+      </trace>
+      <line p0="33% 110%" p1="66% 110%"/>
+      <label loc="50% 115%" fontSize="12" title="*"/>
+   </graph>
+   <graph strokeWidth="0.5pt" loc="1in 3.75in" autorange="z" width="1.5in" fontSize="10" title="Low noise" height="1.5in">
+      <axis labelOffset="15pt" lineHt="0.8" start="0" spacer="0in" fontSize="11" end="1" title="Noise [MAD]">
+         <ticks len="0.02in" intv="0.5" perLogIntv="1" gap="5pt" start="0" fontSize="10" end="1" dir="in" fmt="f2"/>
+      </axis>
+      <axis labelOffset="21pt" lineHt="0.8" start="0" spacer="0in" fontSize="11" end="0.3" title="Probability">
+         <ticks len="0.02in" intv="0.1" perLogIntv="1" gap="3pt" start="0" fontSize="10" end="0.3" dir="in" fmt="f2"/>
+      </axis>
+      <colorbar cmapnan="ffffff" lineHt="0.8" gap="0.6in" cmap="tropic" start="0" spacer="0.1in" end="100" title="colormap">
+         <ticks intv="10"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend border="0pt" loc="60% 67%" labelOffset="4.6pt" hide="false" size="0.1in" len="0.15in" boxColor="ffffff" spacer="20.3pt" mid="true"/>
+      <raster fillColor="990000ff" mode="normhist" avg="true" src="#src_4" nbins="8" start="0.02" end="0.18" title="Control"/>
+      <raster fillColor="99ff0000" mode="normhist" avg="true" src="#src_89" nbins="17" end="0.34" title="HFS"/>
+      <label loc="50% 105%" fontStyle="bold" align="center" title="Low noise" font="Helvetica"/>
+   </graph>
+   <graph strokeWidth="0.5pt" loc="3.5in 3.75in" autorange="z" width="1.5in" fontSize="10" title="High noise" height="1.5in">
+      <axis labelOffset="15pt" lineHt="0.8" start="0" spacer="0in" fontSize="11" end="1" title="Noise [MAD]">
+         <ticks len="0.02in" intv="0.5" perLogIntv="1" gap="5pt" start="0" fontSize="10" end="1" dir="in" fmt="f2"/>
+      </axis>
+      <axis labelOffset="27pt" lineHt="0.8" start="0" spacer="0in" fontSize="11" end="0.15" title="Probability">
+         <ticks len="0.02in" intv="0.05" perLogIntv="1" gap="3pt" start="0" fontSize="10" end="0.15" dir="in" fmt="f2"/>
+      </axis>
+      <colorbar cmapnan="ffffff" lineHt="0.8" gap="0.6in" cmap="tropic" start="0" spacer="0.1in" end="100" title="colormap">
+         <ticks intv="10"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend border="0.5pt" loc="25.4% 67.2%" labelOffset="4.6pt" size="0.1in" len="0.36in" boxColor="ffffff" spacer="20.3pt" mid="true" fontSize="14"/>
+      <raster fillColor="990000ff" mode="normhist" avg="true" src="#src_58" nbins="27" start="0.14" end="0.68" title="Control"/>
+      <raster fillColor="99ff0000" mode="normhist" avg="true" src="#src_96" nbins="36" start="0.2" end="0.92" title="HFS"/>
+      <label loc="50% 105%" fontStyle="bold" align="center" title="High noise" font="Helvetica"/>
+   </graph>
+   <graph strokeWidth="0.5pt" loc="5.25in 6.25in" autorange="z" width="1.5in" fontSize="10" title="Matched internal noise during control and HFS trials&#xa;p=2.0427e-18 n=191" height="1.5in">
+      <axis strokeWidth="0.5pt" labelOffset="25pt" lineHt="0.8" start="0" end="1" title="Noise (control)">
+         <ticks strokeWidth="0.5pt" len="0.05in" intv="0.2" perLogIntv="1" gap="3pt" start="0" end="1" fmt="f2"/>
+      </axis>
+      <axis strokeWidth="0.5pt" labelOffset="30pt" lineHt="0.8" start="0" fontSize="12" end="1" title="Noise (HFS)">
+         <ticks strokeWidth="0.5pt" len="0.05in" intv="0.2" perLogIntv="1" gap="3pt" start="0" fontSize="10" end="1" fmt="f2"/>
+      </axis>
+      <colorbar cmapnan="ffffff" lineHt="0.8" gap="0.6in" cmap="tropic" start="35" spacer="0.1in" end="37" title="colormap">
+         <ticks intv="1" perLogIntv="1"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend loc="0in 0in" size="0.1in" mid="true"/>
+      <scatter fillColor="808080" size="3pt" src="#src_44" legend="false" strokeColor="ffffff">
+         <scatterline fillColor="ff0000" strokeWidth="0in"/>
+      </scatter>
+      <trace strokeWidth="2pt" src="#src_25" legend="false">
+         <symbol fillColor="none" size="0pt" type="circle"/>
+         <ebar hide="true"/>
+      </trace>
+      <scatter size="3pt" src="#src_97" legend="false" strokeColor="ffffff">
+         <scatterline fillColor="none" strokeWidth="0in"/>
+      </scatter>
+   </graph>
+   <graph strokeWidth="0.5pt" loc="6.25in 3.75in" autorange="z" width="2.5in" fontSize="10" title="Two Monkeys&#xa;HFS effect: p=5.4656e-13&#xa;noise level effect: p=3.7205e-32&#xa;Interaction effect: p=0.00014143" height="1.5in">
+      <axis labelOffset="15pt" lineHt="0.8" start="0.5" spacer="0in" fontSize="11" end="2.5">
+         <ticks len="0.03in" intv="1" perLogIntv="1" gap="5pt" start="1" fontSize="10" end="2" dir="in" fmt="f2">FF,FFHFS</ticks>
+      </axis>
+      <axis labelOffset="25pt" lineHt="0.8" start="0" spacer="0in" fontSize="11" end="0.7" title="Error sensitivity">
+         <ticks len="0.03in" intv="0.2" perLogIntv="1" gap="3pt" start="0" fontSize="10" end="0.6" fmt="f2"/>
+      </axis>
+      <colorbar cmapnan="ffffff" lineHt="0.8" gap="0.6in" cmap="tropic" start="0" spacer="0.1in" end="100" title="colormap">
+         <ticks intv="10"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend border="0pt" loc="50% 80%" labelOffset="4.6pt" hide="false" size="0.1in" len="0.15in" boxColor="ffffff" spacer="15pt" mid="true"/>
+      <bar strokeWidth="1pt" src="#src_src_85">ffffff;;Low noise;;808080;;High noise;;</bar>
+      <line p0="0.5u 0u" p1="2.5u 0u" strokeColor="262626"/>
+      <trace strokeWidth="0pt" src="#src_77" legend="false">
+         <symbol fillColor="ffffff" size="0pt" type="circle"/>
+         <ebar strokeWidth="0.5pt" cap="linethru" capSize="6pt"/>
+      </trace>
+      <trace strokeWidth="0pt" src="#src_88" legend="false">
+         <symbol fillColor="ffffff" size="0pt" type="circle"/>
+         <ebar strokeWidth="0.5pt" cap="linethru" capSize="6pt"/>
+      </trace>
+   </graph>
+   <graph strokeWidth="0.5pt" loc="7.75in 6.25in" autorange="z" width="1in" fontSize="12" title="Error sensitivity in&#xa;sessions with similar noise levels&#xa;p=9.8712e-05" height="1.5in">
+      <axis strokeWidth="0.5pt" labelOffset="15pt" lineHt="0.8" start="0.5" fontSize="12" end="1.5">
+         <ticks strokeWidth="0.5pt" len="0.05in" intv="0.5" perLogIntv="1" gap="5pt" start="0.75" fontSize="10" end="1.25" fmt="f2">FF,FF-HFS</ticks>
+      </axis>
+      <axis strokeWidth="0.5pt" labelOffset="30pt" lineHt="0.8" start="0" fontSize="12" end="0.3" title="Error sensitivity">
+         <ticks strokeWidth="0.5pt" len="0.05in" intv="0.1" perLogIntv="1" gap="3pt" start="0" fontSize="10" end="0.3" fmt="f2"/>
+      </axis>
+      <colorbar strokeWidth="0.5pt" labelOffset="15pt" cmapnan="ffffff" lineHt="0.8" gap="0.6in" cmap="tropic" start="0" fontSize="12" end="100" title="colormap">
+         <ticks strokeWidth="0.5pt" len="0.05in" intv="10" gap="5pt" fmt="f2"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend border="0pt" loc="100% 60.5%" labelOffset="4.6pt" hide="false" size="0.1in" len="0.1in" boxColor="ffffff" spacer="20.3pt" mid="true"/>
+      <bar barWidth="40" src="#src_src_40">0000ff;;FF;;ff0000;;FFHFS;;</bar>
+      <line strokeWidth="0.5pt" p0="0.5u 0u" p1="1.5u 0u" fontSize="12" strokeColor="000000"/>
+      <trace strokeWidth="1pt" src="#src_91" legend="false">
+         <symbol fillColor="ffffff" size="0pt" type="circle"/>
+         <ebar cap="linethru" capSize="6pt"/>
+      </trace>
+      <trace strokeWidth="1pt" src="#src_60" legend="false">
+         <symbol fillColor="ffffff" size="0pt" type="circle"/>
+         <ebar cap="linethru" capSize="6pt"/>
+      </trace>
+   </graph>
+   <graph strokeWidth="0.5pt" loc="6in 1in" autorange="z" width="2.5in" fontSize="10" title="Slope cont -0.015132&#xa;Slope Load -0.0974&#xa;Penny,Sophie,, p=0" height="2in">
+      <axis strokeWidth="0.5pt" labelOffset="15pt" lineHt="0.8" start="-1" spacer="0in" fontSize="11" end="1" title="Error">
+         <ticks strokeWidth="0.5pt" len="0.03in" intv="0.5" perLogIntv="1" gap="5pt" start="-1" fontSize="10" end="1" fmt="f1"/>
+      </axis>
+      <axis labelOffset="33pt" lineHt="0.8" start="-0.15" spacer="0in" fontSize="10" end="0.1" title="Adaptive response">
+         <ticks len="0.03in" intv="0.05" perLogIntv="1" gap="3pt" start="-0.15" fontSize="10" end="0.1" fmt="f2"/>
+      </axis>
+      <colorbar cmapnan="ffffff" lineHt="0.8" gap="0.6in" cmap="tropic" start="0" spacer="0.1in" end="100" title="colormap">
+         <ticks intv="10"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend border="0pt" loc="50.8% 89.2%" labelOffset="2.6pt" hide="false" size="0.1in" len="0.42in" boxColor="ffffff" spacer="12.2pt" mid="true" fontSize="8"/>
+      <trace strokeWidth="0pt" src="#src_Control1" strokeColor="808080" title="Control">
+         <symbol fillColor="808080" strokeWidth="1pt" size="6pt" strokeColor="808080" type="diamond"/>
+         <ebar strokeWidth="1pt" cap="linethru" capSize="6pt" strokeColor="808080"/>
+      </trace>
+      <line strokeWidth="1pt" p0="-1u 0.017u" p1="1u -0.013u" strokeColor="808080"/>
+      <trace strokeWidth="0pt" src="#src_Load" strokeColor="0000ff" title="Load">
+         <symbol fillColor="0000ff" strokeWidth="0.5pt" size="6pt" type="diamond"/>
+         <ebar strokeWidth="1pt" cap="linethru" capSize="6pt"/>
+      </trace>
+      <line p0="-1u 0.073u" p1="1u -0.122u" strokeColor="0000ff"/>
+   </graph>
+   <graph strokeWidth="0.5pt" loc="1.2in 1in" autorange="z" width="2.5in" fontSize="10" title="Slope cont -0.015132&#xa;Slope HFS -0.015862&#xa;p=0.45693" height="2in">
+      <axis labelOffset="15pt" lineHt="0.8" start="-1" spacer="0in" fontSize="11" end="1" title="Error">
+         <ticks len="0.03in" intv="0.5" perLogIntv="1" gap="5pt" start="-1" fontSize="10" end="1" fmt="f1"/>
+      </axis>
+      <axis strokeWidth="0.5pt" labelOffset="33pt" lineHt="0.8" start="-0.15" spacer="0in" end="0.1" title="Adaptive response">
+         <ticks strokeWidth="0.5pt" len="0.03in" intv="0.05" perLogIntv="1" gap="3pt" fontSize="10" fmt="f2"/>
+      </axis>
+      <colorbar cmapnan="ffffff" lineHt="0.8" gap="0.6in" cmap="tropic" start="0" spacer="0.1in" end="100" title="colormap">
+         <ticks intv="10"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend border="0.5pt" loc="51.1% 89.2%" labelOffset="2.6pt" hide="false" size="0.1in" len="0.42in" boxColor="ffffff" spacer="12.2pt" mid="true" fontSize="8"/>
+      <trace strokeWidth="0pt" src="#src_Control" strokeColor="808080" title="Control">
+         <symbol fillColor="808080" strokeWidth="1pt" size="6pt" strokeColor="808080" type="diamond"/>
+         <ebar strokeWidth="1pt" cap="linethru" capSize="6pt"/>
+      </trace>
+      <line strokeWidth="1pt" p0="-1u 0.017u" p1="1u -0.013u" strokeColor="808080"/>
+      <trace strokeWidth="0pt" src="#src_HFS" strokeColor="ff0000" title="HFS">
+         <symbol fillColor="ff0000" strokeWidth="0.5pt" size="6pt" type="diamond"/>
+         <ebar fillColor="ff0000" strokeWidth="1pt" cap="linethru" capSize="6pt"/>
+      </trace>
+      <line strokeWidth="1pt" p0="-1u 0.015u" p1="1u -0.017u" strokeColor="ff0000"/>
+   </graph>
+   <ref >
+      <set id="src_HFS" fmt="series">AAAAB3NyY19IRlMAAAACPwAAAL9MzM0AAAACAAAABLuHhh88vj/iPCq82zvhMlm8B9JqPA0XTbya
+XLY9LYuC</set>
+      <set id="src_Control" fmt="ptset">AAAAC3NyY19Db250cm9sAAAAAAAAAAMAAAAEvzMzMzukyo083IvwvkzMzTv72X47sD7WPpmZmrsg
+fc47u4AvP0zMzbyDAis9JVCz</set>
+      <set id="src_Load" fmt="series">AAAACHNyY19Mb2FkAAAAAj8AAAC/TMzNAAAAAgAAAAQ9Fu+SPM5Qw7wli34749NWvMoTGjvoFqy9
+8FmjPG70iA==</set>
+      <set id="src_Control1" fmt="ptset">AAAADHNyY19Db250cm9sMQAAAAAAAAADAAAABL8zMzM7pMqNPNyL8L5MzM07+9l+O7A+1j6ZmZq7
+IH3OO7uALz9MzM28gwIrPSVQsw==</set>
+      <set id="src_60" fmt="ptset">AAAABnNyY182MAAAAAAAAAADAAAAAT+gAAA+dsPyPBf2qQ==</set>
+      <set id="src_91" fmt="ptset">AAAABnNyY185MQAAAAAAAAADAAAAAT9AAAA+lKXqPA0XWg==</set>
+      <set id="src_src_40" fmt="mset">AAAACnNyY19zcmNfNDAAAAABAAAAAwAAAAE/gAAAPpSl6j52w/I=</set>
+      <set id="src_88" fmt="ptset">AAAABnNyY184OAAAAAAAAAADAAAAAj+Sj1w+nBnDPEVq2EAJR64+gJS7PEyTtQ==</set>
+      <set id="src_77" fmt="ptset">AAAABnNyY183NwAAAAAAAAADAAAAAj9a4Ug/GLyvPMt+Cj/tcKQ+xhZoPJfMnw==</set>
+      <set id="src_src_85" fmt="mset">AAAACnNyY19zcmNfODUAAAABAAAAAwAAAAI/gAAAPxi8rz6cGcNAAAAAPsYWaD6AlLs=</set>
+      <set id="src_97" fmt="ptset">
+AAAABnNyY185NwAAAAAAAAACAAAAWz4Wg4E+H3pqPgtbyT4K6fU9ExBrPVD6Gz45hBo+E2gZPdSq
+eD3YCDQ+lLJhPo1ToT6Xk8A+fGM6Po7F1z7P7og+p4uWPpnwKz4j8qQ+ccWtPqSodD7lCqg+qUhy
+PuzavT60a48+vTP0Pj6BkT5hRqE9LZX+PWET6D6w3Ns+gwsxPpjozD6Y9FA+EaT9PkLdID26U0M9
+rq8nPoE3PT6X5V8+PoljPkyodj5J1Ww+UuRkPYxbHT3fVDA+rKF9PorSrT5T640+JykJPh7nST5P
+zRM+gwG1Poelwz5QCy8+k84pPd1tJz3WEMc+n2aSPp/TND4H+bE+GC9LPoBrCT5qjo0+PvOdPnhE
+OD2YKzM9g9+XPjlRTT5OJ8Y+gYuxPoRoGT61ejk+pFmWPoYN8j6vPI4+ApNLPjRUvT3VHog9pX5M
+Pm9Ilj5/nYc+MG+lPntF0j6DFOs+UsdUPcuigT3Krf89Vc6fPUY9wj4p4xQ+IqtoPpH84T6cRts+
+YcpgPolX6j5FO58+LvXhPSXuSz2CPts+XuVXPmjbdT5YTcg+JUQVPaY+LD4HV+0+WGKMPi+zhj5Q
+dXg+ofq6PvBXdj668Qs+euiPPpjA8j5hTkY+YjpPPtH7Qj8g+kU+SC3EPpJq3D7Kknw+qTcMPli6
+Tj57TrY+1L1aPyUuvD5Uvpo+eyyZPy0B0j8YBBo+kacnPsd/Aj5y3G8+v5c9Pqj5fz7UzK8+hIFs
+PpuEhj5HBuE+HLimPaZfwj2FPcg98K0/Pi7wGD4jVjk+d2OQPwSPJz70xzE9tMd9PZiiND4ofwg+
+iQ/7Pmfvmj6uVZk+zx4xPqNVqT6WchI+5dQQPk6p1j5ARtQ9V0stPXrMXz4KaXQ+Yu7YPgM4tz4c
+QxA9jE9yPZxVWz6vSOE+q7A0Psb/Tz7q3/E+qOz0PohiZz2T9I89xM2APdsk4T4g0so9ildcPauU
+3j4fhCk+fAMg
+      </set>
+      <set id="src_25" fmt="ptset">AAAABnNyY18yNQAAAAAAAAACAAAAAgAAAAAAAAAAP4AAAD+AAAA=</set>
+      <set id="src_44" fmt="ptset">
+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
+tmKaPh+EKT58AyA=
+      </set>
+      <set id="src_96" fmt="raster1d">
+AAAABnNyY185NgAAAAQAAAABAAAAXUK6AAA+6cGePnS5gz6NU6E+fGM6Pnr2rT59cFk+rlx3Ps/u
+iD6Z8Cs+jskhPnHFrT7lCqg+7Nq9Pr0z9D6if6M+YUahPoMLMT6Y9FA+kggiPpflXz6XBEg+V+OZ
+PorSrT6HpcM+WX1KPnChRz7Pw70+k84pPp/TND5UUxw+ao6NPnhEOD6ckhc+hGgZPuBX3j6kWZY+
+rzyOPn+dhz57RdI+nEbbPolX6j6dFxw+aNt1Ps+V7D668Qs+84CxPrruRz7TKIA+xndzPr8wtz8e
+9FE+0qRuPuUjcz8HBDg+tpFJPyD6RT9eQPc+w8a+PxnIRj8lLrw/J3B/P0TnSD9Z4Io/aQWCPxgE
+Gj67ZAA/AL5LP1kdyz7HfwI+6BogPvy4GD7UzK8+2d8xPvafXT8P4Sg/FHCkPvTHMT7g0i8+rlWZ
+Ptx88D8Qceo+tKeXPuXUED61VKw+2T5tPtSB6D60IYw/BCR6PtY63T7q3/E+8JHxPrswFj62Ypo=
+      </set>
+      <set id="src_58" fmt="raster1d">
+AAAABnNyY181OAAAAAQAAAABAAAAXUK6AAA+ZlPNPjmEGj6UsmE+l5PAPrVxVj6Oxdc+p4uWPiPy
+pD6kqHQ+qUhyPmDMgT60a48+PoGRPrDc2z6Y6Mw+gTc9PiDw0z4+iWM+SdVsPqyhfT5T640+HudJ
+PoMBtT5OqCk+UAsvPp9mkj6Aawk+PvOdPjlRTT6Bi7E+gVgLPrV6OT6GDfI+b0iWPjBvpT6DFOs+
+KeMUPpH84T5hymA+RTufPigqxj5e5Vc+WE3IPlhijD5QdXg+fnpmPvBXdj6d2vU+ka+sPlrYoz56
+6I8+Q7mTPoly0j47tag+jHJnPi4DWz5hTkY+0ftCPkgtxD7zRbo/HQIWPj2VPT7Kknw+WLpOPtS9
+Wj5Uvpo+nXiSPwknLT8tAdI+i4TrPpGnJz5y3G8+qPl/PoSBbD54OlI+M05gPkcG4T5cnr4/BI8n
+Pih/CD5wR5M+Z++aPs8eMT6oJvA+lnISPk6p1j8cM5I+fP8sPq9I4T7G/08+qOz0PoaSWT4sghI=
+      </set>
+      <set id="src_89" fmt="raster1d">
+AAAABnNyY184OQAAAAQAAAABAAAAXkK8AAA+H3pqPY139j4K6fU+E0HLPVD6Gz4TaBk92Ag0Pbeg
+rD3WJeU98i9VPWET6D4xGr4+Qt0gPa6vJz3eX80+TKh2PlLkZD4phqw931QwPicpCT5PzRM9udHp
+PfrX/z3WEMc9sttbPhgvSz4QBTQ9g9+XPk4nxj5Rv3c+NFS9PaV+TD5Sx1Q9yq3/PUY9wj5TEis+
+IqtoPgTe7T4u9eE9gj7bPkwmJD4cKVM+JUQVPgdX7T4vs4Y+ofq6PgPflj6KHk8+R8oBPp2sFz6Y
+wPIAAAAAPn85RT5iOk8+kmrcPignkD6pNww+e062PiuAVz57LJk+m4SGPqGHFz57J7U+cGh/Phy4
+pj2FPcg+LvAYPmcHGz53Y5A9mKI0PokP+z4VrAQ+lP4GPk6vDj4/6Cc+XP3QPqNVqT5+7oQ+QEbU
+PhCLxj16zF8+Yu7YPhxDED2cVVs+S6WBPquwND6Ol04+iGJnPcTNgD6q+YU+INLKPqufdz2rlN4+
+fAMg
+      </set>
+      <set id="src_4" fmt="raster1d">
+AAAABXNyY180AAAABAAAAAEAAABeQrwAAD4Wg4E9zijOPerLTj4LW8k9ZCi1PRMQaz3Uqng93yjz
+PfoYED4BMB89WuPaPWFLXT3zprg9LZX+PeJ4kD1FAPM+EaT9PbpTQz2W0Zo85rmMPZEmvD2MWx09
+HCilPfYN6D25nNQ9hQHcPd1tJzzzrXo9/Dw8Pgf5sT2rA7c+EJlzPZgrMz3dYyQ+ApNLPdUeiD3L
+ooE9Vc6fPeaqmz2Kx1E9Je5LPfCDMD13Df89pj4sPeFlkD4OzKk+G0nKPdZU9D4laeM9u8O7PWta
+tj2yipU9x+EaPeCGaT2D6G09uItbPfEiXD4oCJI+HU2cPcZN8D3jOwU9r38dPdSy6T2mX8I98K0/
+PgaKzz4jVjk9tMd9Pab2tj4Iyso935GYPaiPpD2tltY+JGT1PeA2Hj3vhEY9izWVPVdLLT4VRcM+
+Cml0PgM4tz4Pk2s9jE9yPanPWj2mF88+DspqPY/xfT2T9I896ovNPdsk4T3UtrU9ildcPa+Gdz4f
+hCk=
+      </set>
+      <set id="src_64" fmt="ptset">AAAABnNyY182NAAAAAAAAAADAAAAAj+AAAA/XjQJO6iackAAAAA/U9Y9O7Fu0Q==</set>
+      <set id="src_src_83" fmt="mset">AAAACnNyY19zcmNfODMAAAABAAAAAgAAAAI/gAAAP140CUAAAAA/U9Y9</set>
+      <set id="src_1" fmt="ptset">AAAABXNyY18xAAAAAAAAAAMAAAACP4AAAD6EEP48SYsJQAAAAD5Nu8A8bMv2</set>
+      <set id="src_src_70" fmt="mset">AAAACnNyY19zcmNfNzAAAAABAAAAAgAAAAI/gAAAPoQQ/kAAAAA+TbvA</set>
+   </ref>
+</figure>
+
