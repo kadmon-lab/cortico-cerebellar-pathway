@@ -20,6 +20,13 @@ def make_window_fct(width = 30):
 def moving_average(x, w):
     return np.convolve(x, np.ones(w), 'valid') / w
 
+def get_ang_diff(ang):
+    return (ang+np.pi)%(2*np.pi)-np.pi
+
+def compute_angle_average(x, axis = 0):
+    # x is an array of angles, we output the average
+    cplx = np.exp(1j * x)
+    return np.angle(np.nanmean(cplx, axis=axis))
 
 def get_data(data_file = 'Penny_cont8combined_dic.npy'):
     """
@@ -165,8 +172,6 @@ def add_zscored_to_dic(dic, t, window_size = 10, test_set = False):
     
     window_size : length of the time window, 1 = 30ms
     
-    test_set : If True, creates another key specific to the testset
-    
     Returns:
     
     input dictionnary on which has been added the corresponding 'mat_zscored' key
@@ -192,6 +197,36 @@ def add_zscored_to_dic(dic, t, window_size = 10, test_set = False):
 
     return dic
 
+
+def perform_PCA(dic_cont8, neuron_filter, t, window_size):
+    """
+    Perform PCA on the given data dictionaries using the specified neuron filter, time window, and time offset.
+
+    Args:
+        dic_cont8 (dict): Data dictionary containing control data.
+        neuron_filter (ndarray): Boolean filter for selecting neurons.
+        t (int): Time offset for selecting data.
+        window_size (int): Window size for selecting data.
+
+    Returns:
+        A tuple containing three arrays of eigenvalues and eigenvectors for total, control, and HFS data, respectively.
+    """
+
+    # Compute number of selected neurons
+    nb_neur = neuron_filter.sum()
+
+    # Extract z-scored data for control data
+    z_scored_data_cont8 = dic_cont8['mat_zscored']
+
+    # Select and reshape data for control data
+    R = np.array(z_scored_data_cont8)[neuron_filter, :, t:t+window_size]
+    X = R.reshape((nb_neur, window_size*8))
+
+    # Compute covariance matrix and its eigenvalues/eigenvectors for control data
+    C = X @ X.transpose()
+    eigvals_cont, eigvects_cont = np.linalg.eigh(C)[0], np.linalg.eigh(C)[1]
+
+    return eigvals_cont, eigvects_cont
 
 
 def TDR_avg_over_trials(z_scored_data, neuron_filter, t , window_size=10, Npca = 12):
@@ -458,7 +493,7 @@ def get_filter_for_learned_target(dic):
     nb_neurons = len(dic['target'])
     neuron_filter_learned_target = np.zeros((nb_neurons,8))
     for n in range(nb_neurons):
-        if dic['target'][n].shape[0] > 1:
+        if dic['target'][n].shape[0] > 0:
             target = dic['target'][n][0] - 1
             neuron_filter_learned_target[n,target] = True
             
@@ -470,7 +505,7 @@ def get_filter_for_direction(dic):
     nb_neurons = len(dic['target'])
     neuron_filter_dir = np.zeros((nb_neurons,8))
     for n in range(nb_neurons):
-        if dic['target'][n].shape[0] > 1:
+        if dic['target'][n].shape[0] > 0:
             target = dic['target'][n][0] - 1
             neuron_filter_dir[n,target] = dic['dir'][n][0,0]
 
@@ -508,7 +543,7 @@ def add_zscored_wrt_cont8_to_dic(dic, dic_cont8, t, window_size = 10):
             if data_mat[0].shape[0] > 0:
                 target = np.array(dic['target'],dtype='object')[neuron][trial]
                 res[trial,:] =((data_mat[trial] - dic_cont8['mat_cond_avg'][neuron][:,t:t+window_size].mean())/
-                               (1e-10+dic_cont8['mat_cond_avg'][neuron][:,t:t+window_size].std()) )
+                               (1e-4+dic_cont8['mat_cond_avg'][neuron][:,t:t+window_size].std()) )
 
         dic['mat_zscored_wrt_cont8'].append(res)
 
@@ -537,164 +572,109 @@ def add_zscored_wrt_cont8_truncated_to_dic(dic, neuron_filter, nb_time_frames):
     return dic, nb_trials
         
     
-    
-    
-def perform_PCAs(dic_tot, dic_cont8, dic_hfs, neuron_filter, t, window_size):
-    """
-    Perform PCA on the given data dictionaries using the specified neuron filter, time window, and time offset.
-
-    Args:
-        dic_tot (dict): Data dictionary containing total data.
-        dic_cont8 (dict): Data dictionary containing control data.
-        dic_hfs (dict): Data dictionary containing HFS data.
-        neuron_filter (ndarray): Boolean filter for selecting neurons.
-        t (int): Time offset for selecting data.
-        window_size (int): Window size for selecting data.
-
-    Returns:
-        A tuple containing three arrays of eigenvalues and eigenvectors for total, control, and HFS data, respectively.
-    """
-
-    # Extract z-scored data for total data
-    z_scored_data = dic_tot['mat_zscored']
-
-    # Compute number of selected neurons
-    nb_neur = neuron_filter.sum()
-
-    # Select and reshape data for total data
-    R = np.array(z_scored_data)[neuron_filter, :, t:t+window_size]
-    X = R.reshape((nb_neur, window_size*16))
-
-    # Compute covariance matrix and its eigenvalues/eigenvectors for total data
-    C = X @ X.transpose()
-    eigvals, eigvects = np.linalg.eigh(C)[0], np.linalg.eigh(C)[1]
-
-    # Extract z-scored data for control data
-    z_scored_data_cont8 = dic_cont8['mat_zscored']
-
-    # Select and reshape data for control data
-    R = np.array(z_scored_data_cont8)[neuron_filter, :, t:t+window_size]
-    X = R.reshape((nb_neur, window_size*8))
-
-    # Compute covariance matrix and its eigenvalues/eigenvectors for control data
-    C = X @ X.transpose()
-    eigvals_cont, eigvects_cont = np.linalg.eigh(C)[0], np.linalg.eigh(C)[1]
-
-    # Extract z-scored data for HFS data
-    z_scored_data_hfs = dic_hfs['mat_zscored']
-
-    # Select and reshape data for HFS data
-    R = np.array(z_scored_data_hfs)[neuron_filter, :, t:t+window_size]
-    X = R.reshape((nb_neur, window_size*8))
-
-    # Compute covariance matrix and its eigenvalues/eigenvectors for HFS data
-    C = X @ X.transpose()
-    eigvals_hfs, eigvects_hfs = np.linalg.eigh(C)[0], np.linalg.eigh(C)[1]
-
-    return eigvals, eigvects, eigvals_cont, eigvects_cont, eigvals_hfs, eigvects_hfs
-
-def perform_PCA(dic_cont8, neuron_filter, t, window_size):
-    """
-    Perform PCA on the given data dictionaries using the specified neuron filter, time window, and time offset.
-
-    Args:
-        dic_cont8 (dict): Data dictionary containing control data.
-        neuron_filter (ndarray): Boolean filter for selecting neurons.
-        t (int): Time offset for selecting data.
-        window_size (int): Window size for selecting data.
-
-    Returns:
-        A tuple containing three arrays of eigenvalues and eigenvectors for total, control, and HFS data, respectively.
-    """
-
-    # Compute number of selected neurons
-    nb_neur = neuron_filter.sum()
-
-    # Extract z-scored data for control data
-    z_scored_data_cont8 = dic_cont8['mat_zscored']
-
-    # Select and reshape data for control data
-    R = np.array(z_scored_data_cont8)[neuron_filter, :, t:t+window_size]
-    X = R.reshape((nb_neur, window_size*8))
-
-    # Compute covariance matrix and its eigenvalues/eigenvectors for control data
-    C = X @ X.transpose()
-    eigvals_cont, eigvects_cont = np.linalg.eigh(C)[0], np.linalg.eigh(C)[1]
-
-    return eigvals_cont, eigvects_cont
-
-
-
-def get_rand_tr_indices_same_nbt_per_target(dic_cont8, dic_hfs):
-
-    nb_neurons = len(dic_hfs['target'])
-
-    trial_indices_to_consider_hfs = np.zeros(nb_neurons, dtype = 'object')
-    trial_indices_to_consider_cont8 = np.zeros(nb_neurons, dtype = 'object')
+def add_max_dev_to_dic(dic):
+    nb_neurons = len(dic['mat'])
+    max_dev = []
 
     for neuron in range(nb_neurons):
-
-        hfs_targets = dic_hfs['target'][neuron]
-        cont8_targets = dic_cont8['target'][neuron]
-
-        hfs_trial_indices = np.array([])
-        cont8_trial_indices = np.array([]) 
-        for target in range(1,9):
-            # get the lower value between number of trials for this given target in HFS and Cont8 data
-            min_nbt_for_target = np.min( [(hfs_targets == target).sum() , (cont8_targets == target).sum()]) 
-
-            # choose min_nbt_for_target indices corresponding to the selected target for each condition 
-            hfs_indices = np.random.choice(np.where(hfs_targets == target)[0], size = min_nbt_for_target, replace = False)
-            cont8_indices = np.random.choice(np.where(cont8_targets == target)[0], size = min_nbt_for_target, replace = False)
-
-            # have all these indices be in one list
-            hfs_trial_indices=np.concatenate((hfs_trial_indices, hfs_indices))
-            cont8_trial_indices=np.concatenate((cont8_trial_indices, cont8_indices))
+        nb_trials = dic['xy_pos'][neuron].shape[0]
+        res = np.zeros(( nb_trials))
+        for trial in range(nb_trials):
+            coord = dic['xy_pos'][neuron][trial][0].astype('float')
+            coord_centered = coord - coord[0]
+            coord_proj = coord_centered @ coord_centered[-1]/np.sqrt((coord_centered[-1]**2 + 1e-10).sum())
+            deviation = np.sqrt((coord_centered**2).sum(axis=1) - coord_proj**2)
+            res[trial] = np.nanmax(deviation)
+        max_dev.append(res)
+    dic['max_dev'] = np.array(max_dev, dtype=('object'))
+    return dic
 
 
-        trial_indices_to_consider_hfs[neuron] = hfs_trial_indices.astype('int')
-        trial_indices_to_consider_cont8[neuron] = cont8_trial_indices.astype('int')
+def add_max_dev_targetref_to_dic(dic, target_coord):
+    nb_neurons = len(dic['mat'])
+    max_dev = []
+    
+    for neuron in range(nb_neurons):
+        nb_trials = dic['xy_pos'][neuron].shape[0]
+        res = np.zeros(( nb_trials))
+        for trial in range(nb_trials):
+            target = dic['target'][neuron][trial]
+            coord = dic['xy_pos'][neuron][trial][0].astype('float')/(2**5)* 5/100
+            vec2target = target_coord[target] - coord[0]
+            vec2target /= np.linalg.norm(vec2target)
+            coord_centered = coord - coord[0]
+
+            coord_proj = coord_centered @ vec2target
+            deviation = np.sqrt((coord_centered**2).sum(axis=1) - coord_proj**2)
+            res[trial] = np.nanmax(deviation)
+        max_dev.append(res)
+    dic['max_dev'] = np.array(max_dev, dtype=('object'))
+    return dic
+
+
+
+def get_reor_vars(angles, rr, T_start, T_end, targets_to_consider):
+    ang_reor_ff = np.concatenate((angles[T_start,0][0,targets_to_consider,:], -angles[T_start,0][1,targets_to_consider,:]))
+    rr_reor_ff = np.concatenate((rr[T_start,0][0,targets_to_consider,:], rr[T_start,0][1,targets_to_consider,:]))
+    
+    ang_reor_ffhfs = np.concatenate((angles[T_start,1][0,targets_to_consider,:], -angles[T_start,1][1,targets_to_consider,:]))
+    rr_reor_ffhfs = np.concatenate((rr[T_start,1][0,targets_to_consider,:], rr[T_start,1][1,targets_to_consider,:]))
+
+    ang_reor_cont1 = angles[T_start,2][targets_to_consider,:]
+    rr_reor_cont1 = rr[T_start,2][targets_to_consider,:]
+    
+    ang_reor_hfs = angles[T_start,3][targets_to_consider,:]
+    rr_reor_hfs = rr[T_start,3][targets_to_consider,:]
+
+
+    for t in range(T_start,T_end):
+        ang_reor_ff = np.concatenate((ang_reor_ff, angles[t,0][0,targets_to_consider,:], -angles[t,0][1,targets_to_consider,:]))
+        rr_reor_ff = np.concatenate((rr_reor_ffhfs, rr[t,0][0,targets_to_consider,:], rr[t,0][1,targets_to_consider,:]))
         
-    return (trial_indices_to_consider_cont8, trial_indices_to_consider_hfs)
+        ang_reor_ffhfs = np.concatenate((ang_reor_ffhfs, angles[t,1][0,targets_to_consider,:], -angles[t,1][1,targets_to_consider,:]))
+        rr_reor_ffhfs = np.concatenate((rr_reor_ffhfs, rr[t,1][0,targets_to_consider,:], rr[t,1][1,targets_to_consider,:]))
 
+        ang_reor_cont1 = np.concatenate((ang_reor_cont1, angles[t,2][targets_to_consider,:] ))
+        rr_reor_cont1 = np.concatenate((rr_reor_cont1, rr[t,2][targets_to_consider,:]))
+        
+        ang_reor_hfs = np.concatenate((ang_reor_hfs, angles[t,3][targets_to_consider,:]))
+        rr_reor_hfs = np.concatenate((rr_reor_hfs, rr[t,3][targets_to_consider,:]))
+        
+    return (ang_reor_ff, rr_reor_ff, ang_reor_ffhfs, rr_reor_ffhfs, ang_reor_cont1, rr_reor_cont1, ang_reor_hfs, rr_reor_hfs)
 
-
-
-def add_condition_average_to_dic_with_defined_trials(dic, trial_indices_to_consider):
-    """
-    Returns:
+def get_vars_dir12(angles, rr, T_start, T_end, targets_to_consider):
+    ang_reor_ff_dir1 = angles[T_start,0][0,targets_to_consider,:]
+    ang_reor_ff_dir2 = angles[T_start,0][1,targets_to_consider,:]
+    rr_reor_ff_dir1 = rr[T_start,0][0,targets_to_consider,:]
+    rr_reor_ff_dir2 = rr[T_start,0][1,targets_to_consider,:]
     
-    1: the input dictionnary in which has been added the 'mat_cond_avg' and 'target_cond_avg' keys that 
-    contains the neural response average over trials for each target (condition) and the corresponding target.
+    ang_reor_ffhfs_dir1 = angles[T_start,1][0,targets_to_consider,:]
+    ang_reor_ffhfs_dir2 = angles[T_start,1][1,targets_to_consider,:]
+    rr_reor_ffhfs_dir1 = rr[T_start,1][0,targets_to_consider,:]
+    rr_reor_ffhfs_dir2 = rr[T_start,1][1,targets_to_consider,:]
+
+    ang_reor_cont1 = angles[T_start,2][targets_to_consider,:]
+    rr_reor_cont1 = rr[T_start,2][targets_to_consider,:]
     
-    2: a filter of size #nb_neurons with True if all of 8 targets were recorded for at least one trial for 
-    that neuron and False if not.
-    """
-    nb_time_frames = dic['mat'][0].shape[1]
-    nb_neurons = len(dic['mat']) #total number of neurons recorded
-    dic['mat_cond_avg'] = []
-    dic['target_cond_avg'] = np.arange(1,9)
-    neuron_filter = np.zeros(nb_neurons)
-    for neuron in range(nb_neurons):
-        res = []
-        RedFlag = False
-        for target in range(1,9):
-            res1 = []
-            flag = True
-            for trial in trial_indices_to_consider[neuron]:
-                if dic['target'][neuron][trial] == target:
-                    flag = False
-                    res1.append(dic['mat'][neuron][trial])
-            if flag == True : # meaning if not all of the 8 targets were controlled
-                RedFlag = True
+    ang_reor_hfs = angles[T_start,3][targets_to_consider,:]
+    rr_reor_hfs = rr[T_start,3][targets_to_consider,:]
 
-            res.append(np.array(res1).mean(axis = 0))
 
-        if RedFlag == False:  # if all of the 8 targets were controlled then we save data for the neuron
-            dic['mat_cond_avg'].append(np.array(res))
-            neuron_filter[neuron] = 1
-        else:
-            dic['mat_cond_avg'].append(np.zeros((8,nb_time_frames)))
-            
-            
-    return (dic , neuron_filter.astype(dtype = 'bool'))
+    for t in range(T_start,T_end):
+        ang_reor_ff_dir1 = np.concatenate((ang_reor_ff_dir1, angles[t,0][0,targets_to_consider,:]))
+        rr_reor_ff_dir1 = np.concatenate((rr_reor_ffhfs_dir1, rr[t,0][0,targets_to_consider,:]))
+        ang_reor_ff_dir2 = np.concatenate((ang_reor_ff_dir2, angles[t,0][1,targets_to_consider,:]))
+        rr_reor_ff_dir2 = np.concatenate((rr_reor_ffhfs_dir2, rr[t,0][1,targets_to_consider,:]))
+        
+        ang_reor_ffhfs_dir1 = np.concatenate((ang_reor_ffhfs_dir1, angles[t,1][0,targets_to_consider,:]))
+        rr_reor_ffhfs_dir1 = np.concatenate((rr_reor_ffhfs_dir1, rr[t,1][0,targets_to_consider,:] ))
+        ang_reor_ffhfs_dir2 = np.concatenate((ang_reor_ffhfs_dir2, angles[t,1][1,targets_to_consider,:]))
+        rr_reor_ffhfs_dir2 = np.concatenate((rr_reor_ffhfs_dir2, rr[t,1][1,targets_to_consider,:]))
+
+        ang_reor_cont1 = np.concatenate((ang_reor_cont1, angles[t,2][targets_to_consider,:] ))
+        rr_reor_cont1 = np.concatenate((rr_reor_cont1, rr[t,2][targets_to_consider,:]))
+        
+        ang_reor_hfs = np.concatenate((ang_reor_hfs, angles[t,3][targets_to_consider,:]))
+        rr_reor_hfs = np.concatenate((rr_reor_hfs, rr[t,3][targets_to_consider,:]))
+        
+    return (ang_reor_ff_dir1, rr_reor_ff_dir1, ang_reor_ffhfs_dir1, rr_reor_ffhfs_dir1, ang_reor_ff_dir2, rr_reor_ff_dir2, ang_reor_ffhfs_dir2, rr_reor_ffhfs_dir2, ang_reor_cont1, rr_reor_cont1, ang_reor_hfs, rr_reor_hfs)
