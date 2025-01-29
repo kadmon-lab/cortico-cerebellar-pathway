@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<?fyp appVersion="5.4.5" schemaVersion="26"?>
+<figure xmlns="http://www.keck.ucsf.edu/datanav/namespace/schema26"
+   strokeWidth="0.007in" strokeJoin="miter" loc="0in 2in" strokePat="solid" psFont="Helvetica" fontStyle="plain" fillColor="000000" altFont="serif" strokeCap="butt" width="7.5in" fontSize="8" strokeColor="808080" font="Arial" height="3.75in">
+   <label loc="2.8% 60%" fontSize="17" title="a"/>
+   <label loc="24% 60%" fontSize="17" title="b"/>
+   <label loc="45% 60%" fontSize="17" title="c"/>
+   <graph strokeWidth="0.3375pt" loc="3.675in 0.75in" autorange="z" width="0.98in" fontSize="7" title="Slope cont -0.016212&#xa;Slope Load -0.11592&#xa;Sophie,, p=3.0265e-13" height="1.35in">
+      <axis labelOffset="16.88pt" lineHt="0.8" start="-1" spacer="0.068in" fontSize="8" end="1" title="Error">
+         <ticks len="0.02in" intv="0.5" perLogIntv="1" gap="3.375pt" start="-1" fontSize="7" end="1" fmt="f1"/>
+      </axis>
+      <axis labelOffset="22.28pt" lineHt="0.8" start="-0.2" spacer="0.068in" fontSize="8" end="0.1">
+         <ticks len="0.02in" intv="0.1" perLogIntv="1" gap="2.025pt" start="-0.2" fontSize="7" end="0.1" fmt="f2"/>
+      </axis>
+      <colorbar labelOffset="0.3375in" size="0.135in" cmapnan="ffffff" lineHt="0.8" gap="0.405in" cmap="tropic" start="0" spacer="0.068in" end="100" title="colormap">
+         <ticks len="0.04in" intv="10" gap="0.027in"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend border="0pt" loc="0% 10%" labelOffset="1.755pt" hide="false" size="0.068in" len="0.2835in" boxColor="ffffff" spacer="8.235pt" mid="true" fontSize="5"/>
+      <trace strokeWidth="0pt" src="#src_Load11" strokeColor="4169e1" title="FF-monkey S">
+         <symbol fillColor="4169e1" strokeWidth="0.3375pt" size="4.05pt" type="circle"/>
+         <ebar fillColor="4169e1" strokeWidth="0.3375pt" cap="linethru" capSize="4.05pt"/>
+      </trace>
+      <line strokeWidth="1.35pt" p0="-1u 0.078u" p1="1u -0.153u" strokeColor="0000ff"/>
+      <trace strokeWidth="0pt" src="#src_Load1" strokeColor="000080" title="FF-monkey P">
+         <symbol fillColor="000080" strokeWidth="0.3375pt" size="4.05pt"/>
+         <ebar strokeWidth="0.3375pt" cap="linethru" capSize="4.05pt"/>
+      </trace>
+      <line strokeWidth="1.35pt" p0="-1u 0.072u" p1="1u -0.092u" strokeColor="000080"/>
+   </graph>
+   <graph strokeWidth="0.3375pt" loc="0.675in 0.75in" autorange="z" width="0.98in" fontSize="7" title="Slope cont -0.016212&#xa;Slope Load -0.11592&#xa;Sophie,, p=3.0265e-13" height="1.35in">
+      <axis labelOffset="16.88pt" lineHt="0.8" start="-1" spacer="0.068in" fontSize="8" end="1" title="Error">
+         <ticks len="0.02in" intv="0.5" perLogIntv="1" gap="3.375pt" start="-1" fontSize="7" end="1" fmt="f1"/>
+      </axis>
+      <axis labelOffset="22.28pt" lineHt="0.8" start="-0.2" spacer="0.068in" fontSize="8" end="0.1" title="Adaptive response">
+         <ticks len="0.02in" intv="0.1" perLogIntv="1" gap="2.025pt" start="-0.2" fontSize="7" end="0.1" fmt="f2"/>
+      </axis>
+      <colorbar labelOffset="0.3375in" size="0.135in" cmapnan="ffffff" lineHt="0.8" gap="0.405in" cmap="tropic" start="0" spacer="0.068in" end="100" title="colormap">
+         <ticks len="0.04in" intv="10" gap="0.027in"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend border="0pt" loc="0% 10%" labelOffset="1.755pt" hide="false" size="0.068in" len="0.2835in" boxColor="ffffff" spacer="8.235pt" mid="true" fontSize="5"/>
+      <trace strokeWidth="0pt" src="#src_Control11" title="Control - monkey S">
+         <symbol fillColor="808080" strokeWidth="0.3375pt" size="4.05pt" type="circle"/>
+         <ebar strokeWidth="0.3375pt" cap="linethru" capSize="4.05pt"/>
+      </trace>
+      <line strokeWidth="1.35pt" p0="-1u 0.021u" p1="1u -0.011u"/>
+      <trace strokeWidth="0pt" src="#src_Control1" title="Control-monkey P">
+         <symbol strokeWidth="0.3375pt" size="4.05pt"/>
+         <ebar strokeWidth="0.3375pt" cap="linethru" capSize="4.05pt"/>
+      </trace>
+      <line strokeWidth="1.35pt" p0="-1u 0.011u" p1="1u -0.014u"/>
+   </graph>
+   <graph strokeWidth="0.3375pt" loc="2.1in 0.75in" autorange="z" width="0.98in" fontSize="7" title="Slope cont -0.016212&#xa;Slope HFS -0.0055288&#xa;p=0.85389" height="1.35in">
+      <axis labelOffset="16.88pt" lineHt="0.8" start="-1" spacer="0.068in" fontSize="8" end="1" title="Error">
+         <ticks len="0.02in" intv="0.5" perLogIntv="1" gap="3.375pt" start="-1" fontSize="7" end="1" fmt="f1"/>
+      </axis>
+      <axis labelOffset="22.28pt" lineHt="0.8" start="-0.2" spacer="0.068in" fontSize="8" end="0.1">
+         <ticks len="0.02in" intv="0.1" perLogIntv="1" gap="2.025pt" fontSize="7" fmt="f2"/>
+      </axis>
+      <colorbar labelOffset="0.3375in" size="0.135in" cmapnan="ffffff" lineHt="0.8" gap="0.405in" cmap="tropic" start="0" spacer="0.068in" end="100" title="colormap">
+         <ticks len="0.04in" intv="10" gap="0.027in"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend border="0pt" loc="0% 10%" labelOffset="1.755pt" hide="false" size="0.068in" len="0.2835in" boxColor="ffffff" spacer="8.235pt" mid="true" fontSize="5"/>
+      <trace strokeWidth="0pt" src="#src_HFS11" strokeColor="ff0000" title="HFS-monkey S">
+         <symbol fillColor="ff0000" strokeWidth="0.3375pt" size="4.05pt" type="circle"/>
+         <ebar strokeWidth="0.3375pt" cap="linethru" capSize="4.05pt"/>
+      </trace>
+      <line strokeWidth="1.35pt" p0="-1u -0.002u" p1="1u -0.013u" strokeColor="ff0000"/>
+      <trace strokeWidth="0pt" src="#src_HFS1" strokeColor="8b0000" title="HFS-monkey P">
+         <symbol fillColor="8b0000" strokeWidth="0.3375pt" size="4.05pt"/>
+         <ebar strokeWidth="0.3375pt" cap="linethru" capSize="4.05pt"/>
+      </trace>
+      <line strokeWidth="1.35pt" p0="-1u 0.044u" p1="1u -0.034u" strokeColor="8b0000"/>
+   </graph>
+   <ref >
+      <set id="src_HFS1" fmt="series">AAAACHNyY19IRlMxAAAAAj8AAAC/TMzNAAAAAgAAAAQ9k9CkPRWDfzwS/1w79etLu0JsQjwa7Fa6
+sOrJPXtkMg==</set>
+      <set id="src_HFS11" fmt="series">AAAACXNyY19IRlMxMQAAAAI/AAAAv0zMzQAAAAIAAAAEvMHFMTzhmUE8T/yzPFRZMryAXA48f74X
+vMyPMT1Z1VQ=</set>
+      <set id="src_Control1" fmt="ptset">AAAADHNyY19Db250cm9sMQAAAAAAAAADAAAABL8zMzO9WBcEPRYO+L5MzM076PuDO9rNmD6ZmZq7
+aQysO+bXKD9MzM29/A9LPcISkA==</set>
+      <set id="src_Control11" fmt="ptset">AAAADXNyY19Db250cm9sMTEAAAAAAAAAAwAAAAS/MzMzPLTiDD0Hhju+TMzNPAnb2zwPLjo+mZma
+upI+DzwYLZw/TMzNO8T6Oz020nw=</set>
+      <set id="src_Load1" fmt="series">AAAACXNyY19Mb2FkMQAAAAI/AAAAv0zMzQAAAAIAAAAEvPbZLz2O+Rs5tNVQPBTnJLxKFFY77yO8
+vbopHzxpAEo=</set>
+      <set id="src_Load11" fmt="series">AAAACnNyY19Mb2FkMTEAAAACPwAAAL9MzM0AAAACAAAABD01NAs83H4AvIJ5RDwcKWa9Ka69PFsr
+F74Qwro8x+Rr</set>
+   </ref>
+</figure>
+

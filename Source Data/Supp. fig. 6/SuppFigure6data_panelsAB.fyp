@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<?fyp appVersion="5.4.5" schemaVersion="26"?>
+<figure xmlns="http://www.keck.ucsf.edu/datanav/namespace/schema26"
+   strokeWidth="0.01in" strokeJoin="miter" loc="-0.25in 1.24in" strokePat="solid" psFont="Helvetica" fontStyle="plain" fillColor="000000" altFont="serif" strokeCap="butt" width="8in" fontSize="12" strokeColor="000000" font="Arial" height="7in">
+   <graph strokeWidth="0.5pt" loc="1.5in 4.25in" autorange="z" width="2.5in" fontSize="10" title="0.0544521" height="2in">
+      <axis labelOffset="25pt" lineHt="0.8" start="0" spacer="0.1in" fontSize="11" end="5" title="Control1">
+         <ticks len="0.04in" intv="1" perLogIntv="1" gap="5pt" fontSize="10" fmt="f1"/>
+      </axis>
+      <axis labelOffset="30pt" lineHt="0.8" start="0" spacer="0.1in" fontSize="11" end="3" title="HFS">
+         <ticks len="0.04in" intv="1" perLogIntv="1" gap="3pt" fontSize="10" fmt="f1"/>
+      </axis>
+      <colorbar cmapnan="ffffff" lineHt="0.8" gap="0.6in" cmap="tropic" start="0" spacer="0.1in" end="100" title="colormap">
+         <ticks intv="10"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend loc="0in 0in" size="0.1in" mid="true"/>
+      <trace strokeWidth="0pt" src="#src_34" legend="false" strokeColor="808000">
+         <symbol fillColor="808000" strokeWidth="0.5pt" size="2pt"/>
+         <ebar hide="true"/>
+      </trace>
+      <trace src="#src_43" legend="false">
+         <symbol fillColor="none" size="0pt" type="circle"/>
+         <ebar hide="true"/>
+      </trace>
+      <label loc="50% 105%" fontSize="11" fontStyle="bold" align="center" title="p = 0.054" font="Helvetica"/>
+   </graph>
+   <graph strokeWidth="0.5pt" loc="5in 4.25in" autorange="z" width="2.5in" fontSize="10" title="0.0891842" height="2in">
+      <axis labelOffset="25pt" lineHt="0.8" start="0" spacer="0.1in" fontSize="11" end="5" title="FF">
+         <ticks len="0.04in" intv="1" perLogIntv="1" gap="5pt" start="0" fontSize="10" end="5" fmt="f1"/>
+      </axis>
+      <axis labelOffset="21pt" lineHt="0.8" start="0" spacer="0.1in" fontSize="11" end="3" title="FF HFS">
+         <ticks len="0.04in" intv="1" perLogIntv="1" gap="3pt" fontSize="10" fmt="f1"/>
+      </axis>
+      <colorbar cmapnan="ffffff" lineHt="0.8" gap="0.6in" cmap="tropic" start="0" spacer="0.1in" end="100" title="colormap">
+         <ticks intv="10"/>
+      </colorbar>
+      <gridline strokeColor="262626"/>
+      <gridline strokeColor="262626"/>
+      <legend loc="0in 0in" size="0.1in" mid="true"/>
+      <trace strokeWidth="0pt" src="#src_60" legend="false" strokeColor="008000">
+         <symbol fillColor="008000" strokeWidth="0.5pt" size="2pt"/>
+         <ebar hide="true" strokeColor="ff0000"/>
+      </trace>
+      <trace src="#src_7" legend="false">
+         <symbol fillColor="none" size="0pt" type="circle"/>
+         <ebar hide="true"/>
+      </trace>
+      <label loc="50% 105%" fontSize="11" fontStyle="bold" align="center" title="p = 0.089" font="Helvetica"/>
+   </graph>
+   <label loc="8% 92%" psFont="Times" fontSize="24" title="a"/>
+   <label loc="53% 92%" psFont="Times" fontSize="24" title="b"/>
+   <ref >
+      <set id="src_7" fmt="ptset">AAAABXNyY183AAAAAAAAAAIAAAACAAAAAAAAAABAAAAAQAAAAA==</set>
+      <set id="src_60" fmt="ptset">
+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
+      </set>
+      <set id="src_43" fmt="ptset">AAAABnNyY180MwAAAAAAAAACAAAAAgAAAAAAAAAAQAAAAEAAAAA=</set>
+      <set id="src_34" fmt="ptset">
+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
+      </set>
+   </ref>
+</figure>
+
